@@ -1,0 +1,46 @@
+*{
+    box-sizing: border-box;
+    background-color: whitesmoke;
+}
+
+header{
+    background-color: rgb(99, 99, 235);
+    padding: 2%;
+    position: relative;
+}
+
+h1{
+    background-color: rgb(99, 99, 235);
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: normal;
+    color: antiquewhite;
+}
+
+input{
+    cursor: pointer;
+    background-color: gold;
+}
+a{
+    text-decoration: none;
+    font-size: large;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight:600;
+}
+
+#header_div2{
+    background-color: rgb(99, 99, 235);   
+}
+
+#main_div{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+    text-align: center;
+    overflow: hidden;
+}
+#main_div > div{
+    padding: 20px 0;
+}

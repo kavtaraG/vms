@@ -1,0 +1,1 @@
+1. To run file in terminal enter npm i and then nodemon

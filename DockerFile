@@ -1,0 +1,21 @@
+FROM node:17
+
+#workion dir
+WORKDIR /wps/app
+
+#Copy Package JSON Files
+COPY package*.json ./
+
+#Install FIles
+RUN npm Install
+
+#Copy Source File
+COPY . .
+
+#Biuld
+RUN npm start
+
+#Expose the Port
+EXPOSE 3000
+
+CMD [ "node" "nodemon/app.js" ]

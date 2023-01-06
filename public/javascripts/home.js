@@ -19,7 +19,7 @@ function myFunction_login() {
 }
 
 function myFunction_signIn() {
-    window.location.href="/sing_in"
+    window.location.href="/login/sing_in"
 }
 
 module.exports = {

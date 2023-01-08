@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/home.css">
+    <script></script>
+    <title>Document</title>
+</head>
+
+    <div class="page-data">
+        <div class="data-table">
+           <table border="1" cellpadding="7" cellspacing="7">
+               <tr>
+                   <th width="20px">No</th>
+                   <th width="250px">Brand</th>
+                   <th width="220px">Purpose</th>
+                   <th width="100px">Origin</th>
+                   <th width="300px">In Stock</th>
+                   <th width="300px">Price</th>
+                   <th>Edit</th>
+                   <th>Delete</th>
+               </tr>
+               <% if(data.length){for(var i = 0;i < data.length;i++) { %>       
+               <tr>
+                   <td><%=data[i]._id%></td>
+                   <td><%=data[i].brand%></td>
+                   <td><%=data[i].purpose%></td>
+                   <td><%=data[i].origin%></td>
+                   <td><%=data[i].in_stock%></td>
+                   <td><%=data[i].price%></td>
+                   <td><button onclick="doEdit('<%=data[i]._id%>');" >Edit</button></td>
+                   <td><button onclick="doDelete('<%=data[i]._id %>');">Delete</button></td>
+               </tr>
+           <% }
+            }else{ %>
+                <tr>
+                   <td colspan="7">No product found</td>
+                </tr>
+           <% } %> 
+           </table>
+        </div>
+       </div>
+    
+</body>
+</html>

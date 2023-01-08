@@ -20,7 +20,15 @@
             <input type="button" value="Login" onclick="myFunction_login()">
         </div>
     </header>
+    
     <h1>Error 404</h1>
     <p>Page under construction</p>
+    <div id="add-item">
+        <input id="addbtn" type="button" value="Add Items" onclick="location='/store/add_products'">
+    </div>
+    <div id="conteiner">
+       <%- include ./partials/store_card %>
+    </div>
+    
 </body>
 </html>

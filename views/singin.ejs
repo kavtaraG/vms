@@ -7,10 +7,7 @@
     <script type="text/javascript" src="/javascripts/singin.js"></script>
     <title>Document</title>
 </head>
-<body>
-    <script>
-        
-    </script>
+<body>   
     <div id="sinin">
         <h1 id="h">Register</h1>
         <input type="text" name="username" placeholder="Username" value="<%= data.username %>"><br>
@@ -18,13 +15,23 @@
         <input type="password" name="password" value="<%= data.password %>"><br>
         <input type="password" name="confirm" value="<%= data.confirm %>"><br>
         <input type="date" name="date" value="<%= data.date %>"><br>
-        <select id="select" onchange="countryList(this.value)">
+       <select id="select">
+        
+        <% let rows = '../public/javascripts/singin.json';
+         let dude = for(let i = 0; i < rows.length; i++){
+            <!-- var selected = (data[0] == i)? "selected": ""; -->
+            %><option name="" value="<%= data[ i ] %>"><%=[i] %></option><%
+        }
+        
+        %>
+       </select>
+        <!-- <select id="select" onchange="countryList(this.value)">
             <option value="<%= data.list %>">Select Country</option>
-            <% if(data.length){for(var i = 0; i < data.length; i++) {%> 
+            <% if(data.length){for(let i = 0; i < data.length; i++) {%> 
             <option value="<%= data[i].text%>"> <%= data[i].text%>
             </option>
             <% } } %>
-        </select><br>
+        </select><br> -->
         <input type="button" value="Submit" onclick="location='#'">
         <input type="button" value="Calcel" onclick="location='/login'">
 

@@ -1,0 +1,19 @@
+[
+    {
+        "id":0,
+        "brand":"focus",
+        "purpose":"paper towlers",
+        "origin":"turkey",
+        "in_stock": true,
+        "price":"5 GEL"
+    },
+    {
+        "id":1,
+        "brand":"focus",
+        "purpose":"napkins",
+        "origin":"turkey",
+        "in_stock": true,
+        "price":"3 GEL"
+    }
+
+]

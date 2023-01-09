@@ -7,4 +7,8 @@
 4. app has tv channel, movies, store and login 
     4.1 procesing on working web page has not got docs to fetch data from
 
-5. 
+5. Two APIs 
+    5.1 /api/v1/users
+    5.2 /api/v2/store
+
+6. 

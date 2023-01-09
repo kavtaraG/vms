@@ -20,6 +20,8 @@ h1{
 input{
     cursor: pointer;
     background-color: gold;
+    width: 200px;
+    height: 30px;
 }
 a{
     text-decoration: none;

@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="sinin">
+        <h1 id="h">Register</h1>
+        <input type="text" name="username" placeholder="Username" value="<%= data.username %>"><br><br>
+        <input type="email" name="email" placeholder="mail" value="<%= data.email%>"><br><br>
+        <input type="password" name="password" value="<%= data.password %>"><br><br>
+        <input type="password" name="confirm" value="<%= data.confirm %>"><br><br>
+        <input type="date" name="date" value="<%= data.date %>"><br><br>
+       <select id="select">
+        
+        <% let rows = '[{"text": "Georgia", "city": "Tbilisi"}]';
+           let i;
+        for(let i = 0; i < rows.length; i++){
+            <!-- var selected = (data[0] == i)? "selected": ""; -->
+            %><option id="opt" name="" value="<%= data[ i ] %>"><%=rows[i] %></option><%
+        }
+        
+        %>
+       </select><br><br>
+      
+        <input id="btn" type="button" value="Submit" onclick="location='#'">
+        <input id="btn" type="button" value="Calcel" onclick="location='/login'">
+
+    </div>
+</body>
+</html>

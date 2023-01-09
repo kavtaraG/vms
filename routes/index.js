@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-const dude = require('../public/javascripts/singin.json')
+const dude = require('../public/javascripts/singin.json');
+const store = require('../public/javascripts/store.json');
 
 // const __dirname = require('../public/javascripts/singin.json');
 
@@ -20,10 +21,16 @@ router.get('/movies', function(req, res, next) {
 
 router.get('/store', function(req, res, next) {
   console.log(req.url);
-  res.render('store', { title: 'Store', data: 'store', qs: req.query  });
+  res.render('store', { title: 'Store', data: store, qs: req.query  });
 });
 
 router.get('/store/add_products', function(req, res, next) {
+  
+  console.log(req.query);
+  res.render('add-products', { title: 'Movies'});
+});
+
+router.get('/store/add', function(req, res, next) {
   
   console.log(req.query);
   res.render('add-products', { title: 'Movies'});

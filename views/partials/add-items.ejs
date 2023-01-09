@@ -6,14 +6,44 @@
     <title>Document</title>
 </head>
 <body>
+    <script>
+        const doAdd = async () => {
+            let brand = document.getElementById('brand').value;
+            let purpose = document.getElementById('purpose').value;
+            let origin = document.getElementById('origin').value;
+            let inStock = document.getElementById('in-stock').value;
+            let price = document.getElementById('price').value;
+            let data = {brand, purpose, origin, inStock, price};
+            let response = await fetch('/api/v2/store', {
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({data}),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    // console.log('Success:', data);
+                    return data;
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+                if(response.status == 'ok'){
+                    location = '/store'
+                }else{
+                    alert(response.msg);
+                }
+        }
+    </script>
     <div id="add-conteiner">
         <input id="brand" type="text" placeholder="Brand" value="brand"><br><br>
         <input id="purpose" type="text" placeholder="Purpose" value="purpose"><br><br>
         <input id="origin" type="text" placeholder="Origin" value="origin"><br><br> 
         <input id="in-stock" type="text" placeholder="In Stock" value="in stock"><br><br>
         <input id="price" type="text" placeholder="Price" value="price"><br><br>
-        <input id="btn1" type="button" value="Add" onclick="location='/store'">
-        <input id="btn2" type="button" value="Cancel" onclick="location='#'">
+        <input id="btn" type="button" value="Add" onclick="location='/store/add'">
+        <input id="btn" type="button" value="Cancel" onclick="location='#'">
     </div>
 </body>
 </html>

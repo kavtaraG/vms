@@ -3,7 +3,7 @@ var router = express.Router();
 
 const singin = require('../public/javascripts/singin.json');
 // const store = require('../public/javascripts/store.json');
-const { getStore  } = require('../services/storeData');
+const { getStore, getStoreById  } = require('../services/storeData');
 
 
 /* GET home page. */
@@ -23,9 +23,19 @@ router.get('/store', function(req, res, next) {
   res.render('store', { title: 'Store', data: getStore(req.body), qs: req.query });
 });
 
+
 router.get('/store/add_products', function(req, res, next) {
+  const store = {};
+  method = 'POST';
   console.log(req.query);
-  res.render('add-products', { title: 'Store', buttonName: 'Add', store: getStore(req.body)});
+  res.render('add-products', { title: 'Store', buttonName: 'Add', store, method});
+});
+
+router.get('/store/edit/:id', function(req, res, next) {
+  const store = getStoreById(req.params.id);
+  method='PUT';
+  console.log(req.url);
+  res.render('add-products', { title: 'Edit', buttonName: 'Update',store, method, qs: req.query });
 });
 
 //login routes  

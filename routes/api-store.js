@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express.Router();
-const { getStore, addStore, deleteStore } = require('../services/storeData');
+const { getStore, addStore, updateStore, deleteStore } = require('../services/storeData');
 
 
 app.get('/', (req, res, next) => {
@@ -12,6 +12,13 @@ app.post('/', (req, res, next) => {
     // let rec = req.body;
     // obj.push(rec);
     res.send({status: 'ok', msg: 'data added succesfully'});
+});
+
+app.put('/', (req, res, next) => {
+    let rec = req.body;
+    console.log('rec', rec);
+    updateStore(rec);
+    res.send({status: 'ok', msg: 'updated'});
 });
 
 

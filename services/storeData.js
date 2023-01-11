@@ -19,7 +19,16 @@ let obj = [
 
 ];
 
-const getStore = () => (obj); 
+const getStore = () => (obj);
+
+const getStoreById = (id) =>{
+   let temp = obj.filter((data)=> (data.id == id));
+   if(temp.length > 0){
+    return temp[0];
+   }else{
+    return {};
+   };
+};
 
 const addStore = (record) => {
     record.id = Date.now();
@@ -27,8 +36,12 @@ const addStore = (record) => {
     
 };
 
-const updateStore = () => {
-
+const updateStore = (rec) => {
+    obj.map((item,index)=>{
+        if(rec.id == item.id){
+          rec = obj[index];
+        }
+      });
 };
 
 const deleteStore = (id) => {
@@ -36,4 +49,4 @@ const deleteStore = (id) => {
     obj = temp;
 };
 
-module.exports = { getStore, addStore, updateStore, deleteStore };
+module.exports = { getStore, getStoreById, addStore, updateStore, deleteStore };

@@ -15,13 +15,13 @@
             let origin = document.getElementById('origin').value;
             let inStock = document.getElementById('in-stock').value;
             let price = document.getElementById('price').value;
-            let data = {id, brand, purpose, origin, inStock, price};
+            // let data = {id, brand, purpose, origin, inStock, price};
             let response = await fetch('/api/v2/store', {
-                method: 'POST', // or 'PUT'
+                method: '<%= method %>', // or 'PUT'
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify({id, brand, purpose, origin, inStock, price}),
                 })
                 .then((response) => response.json())
                 .then((data) => {
@@ -39,11 +39,11 @@
         }
     </script>
     <div id="add-conteiner">
-        <input id="brand" type="text" placeholder="Brand" value="<%= store.brand %>"><br><br>
-        <input id="purpose" type="text" placeholder="Purpose" value="<%= store.purpose %>"><br><br>
-        <input id="origin" type="text" placeholder="Origin" value="<%= store.origin %>"><br><br> 
-        <input id="in-stock" type="text" placeholder="In Stock" value="<%= store.inStock %>"><br><br>
-        <input id="price" type="text" placeholder="Price" value="<%= store.price %>"><br><br>
+        <input id="brand" placeholder="Brand" value="<%= store.brand %>"><br><br>
+        <input id="purpose" placeholder="Purpose" value="<%= store.purpose %>"><br><br>
+        <input id="origin" placeholder="Origin" value="<%= store.origin %>"><br><br> 
+        <input id="in-stock" placeholder="In Stock" value="<%= store.instock %>"><br><br>
+        <input id="price" placeholder="Price" value="<%= store.price %>"><br><br>
         <input id="btn" type="button" value="<%= buttonName %>" onclick="doAdd()">
         <input id="btn" type="button" value="Cancel" onclick="location='/store'">
     </div>

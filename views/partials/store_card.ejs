@@ -8,6 +8,11 @@
     <title>Document</title>
 </head>
     <script>
+        const doEdit = (id) => {
+           
+            location='/store/edit/:id' + id;
+        };
+
         const doDelete =  (id) => {
             let resposne = fetch('/api/v2/store', {
                 method: 'DELETE', // or 'PUT'

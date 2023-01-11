@@ -11,4 +11,4 @@
     5.1 /api/v1/users
     5.2 /api/v2/store
 
-6. 
+6. Created CRUP in this app, in /services/storeData.js, /routes/api-store.js

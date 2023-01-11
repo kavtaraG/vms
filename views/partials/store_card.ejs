@@ -7,7 +7,33 @@
     <script></script>
     <title>Document</title>
 </head>
-
+    <script>
+        const doDelete =  (id) => {
+            let resposne = fetch('/api/v2/store', {
+                method: 'DELETE', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({id}),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log('Success:', data);
+                })
+                .catch((error) => {
+                    // console.error('Error:', error);
+                    return data;
+                });
+                if(resposne.status='ok'){
+                    location = '/store';
+                }else{
+                    alert({esg: 'delete success'});
+                }
+        }
+    </script>
+    <div>
+        <p>total <%= data.length %> records</p>
+    </div>
     <div class="page-data">
         <div class="data-table">
            <table border="1" cellpadding="7" cellspacing="7">
@@ -23,14 +49,14 @@
                </tr>
                <% if(data.length){for(var i = 0;i < data.length;i++) { %>       
                <tr>
-                   <td><%=data[i]._id%></td>
+                   <td><%=data[i].id%></td>
                    <td><%=data[i].brand%></td>
                    <td><%=data[i].purpose%></td>
                    <td><%=data[i].origin%></td>
                    <td><%=data[i].in_stock%></td>
                    <td><%=data[i].price%></td>
-                   <td><button id="btn" onclick="doEdit('<%=data[i]._id%>');" >Edit</button></td>
-                   <td><button id="btn" onclick="doDelete('<%=data[i]._id %>');">Delete</button></td>
+                   <td><button id="btn" onclick="doEdit('<%=data[i].id%>');" >Edit</button></td>
+                   <td><button id="btn" onclick="doDelete('<%=data[i].id %>');">Delete</button></td>
                </tr>
            <% }
             }else{ %>
@@ -41,6 +67,7 @@
            </table>
         </div>
        </div>
+       
     
 </body>
 </html>

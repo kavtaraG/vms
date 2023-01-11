@@ -8,22 +8,24 @@
 <body>
     <script>
         const doAdd = async () => {
+           
+            let id = ''; <% if(store.id){ %> id = "<%= store.id %>" <% } %>
             let brand = document.getElementById('brand').value;
             let purpose = document.getElementById('purpose').value;
             let origin = document.getElementById('origin').value;
             let inStock = document.getElementById('in-stock').value;
             let price = document.getElementById('price').value;
-            let data = {brand, purpose, origin, inStock, price};
+            let data = {id, brand, purpose, origin, inStock, price};
             let response = await fetch('/api/v2/store', {
                 method: 'POST', // or 'PUT'
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({data}),
+                body: JSON.stringify(data),
                 })
                 .then((response) => response.json())
                 .then((data) => {
-                    // console.log('Success:', data);
+                    
                     return data;
                 })
                 .catch((error) => {
@@ -37,13 +39,13 @@
         }
     </script>
     <div id="add-conteiner">
-        <input id="brand" type="text" placeholder="Brand" value="brand"><br><br>
-        <input id="purpose" type="text" placeholder="Purpose" value="purpose"><br><br>
-        <input id="origin" type="text" placeholder="Origin" value="origin"><br><br> 
-        <input id="in-stock" type="text" placeholder="In Stock" value="in stock"><br><br>
-        <input id="price" type="text" placeholder="Price" value="price"><br><br>
-        <input id="btn" type="button" value="Add" onclick="location='/store/add'">
-        <input id="btn" type="button" value="Cancel" onclick="location='#'">
+        <input id="brand" type="text" placeholder="Brand" value="<%= store.brand %>"><br><br>
+        <input id="purpose" type="text" placeholder="Purpose" value="<%= store.purpose %>"><br><br>
+        <input id="origin" type="text" placeholder="Origin" value="<%= store.origin %>"><br><br> 
+        <input id="in-stock" type="text" placeholder="In Stock" value="<%= store.inStock %>"><br><br>
+        <input id="price" type="text" placeholder="Price" value="<%= store.price %>"><br><br>
+        <input id="btn" type="button" value="<%= buttonName %>" onclick="doAdd()">
+        <input id="btn" type="button" value="Cancel" onclick="location='/store'">
     </div>
 </body>
 </html>

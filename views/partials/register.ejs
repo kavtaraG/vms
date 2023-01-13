@@ -14,19 +14,14 @@
         <input type="password" name="confirm" placeholder="Confirm password" value=""><br><br>
         <input type="date" name="date" value=""><br><br>
         
-       <select id="select" value="<%= user.select %>"> 
-        
-        <% let rows = '[{"text": "Georgia", "city": "Tbilisi"}]';
-          let text = ''; %>
+       <select id="select" value="<%= rows %>"> 
             
           <% for(let i = 0; i < rows.length; i++){ %>
-                text += <option id="opt" name="" value="<%= rows[i] %> "><%=rows%></option> 
+               let text += <option id="opt" name="" value="<%= rows %> "><%=rows[i].text%></option> 
 
                   
       <%  }  %>
        </select><br><br>
-
-
       
         <input id="btn" type="button" value="Submit" onclick="location='#'">
         <input id="btn" type="button" value="Calcel" onclick="location='/login'">

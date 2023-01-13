@@ -1,9 +1,17 @@
 var express = require('express');
 var router = express.Router();
+const fs = require('fs');
 
 const singin = require('../public/javascripts/singin.json');
-// const store = require('../public/javascripts/store.json');
 const { getStore, getStoreById  } = require('../services/storeData');
+
+const dataMap = singin.map(el => (singin, el));
+const parseData = JSON.parse(JSON.stringify(dataMap));
+
+
+const dataJSON  = require('../views/partials/temp/temp.json');
+const data = JSON.parse(JSON.stringify(dataJSON));
+
 
 
 /* GET home page. */
@@ -46,9 +54,15 @@ router.get('/login', function(req, res, next) {
 });
 
 router.get('/login/sing_in', function(req, res, next) {
-  
   console.log(req.url);
-  res.render('singin', { title: 'Sing in' , user: singin, });
+  res.render('singin', { title: 'Sing in' , rows: parseData, city: parseData });
+  
+});
+
+router.get('/store-test', function(req, res, next) {
+  console.log(data)
+  console.log(req.url);
+  res.render('store-tst', { title: 'Sing in', data: data });
   
 });
 

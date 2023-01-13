@@ -1,0 +1,26 @@
+[
+    {
+        "id": 0,
+        "productName": "napkin",
+        "image": "/images/download.jpeg",
+        "from": "Spain",
+        "quantity": "250 g",
+        "price": "5.00 GEL"
+    },
+    {
+        "id": 1,
+        "productName": "apple",
+        "image": "/images/product_small_5efb455e7fbeb.jpg",
+        "from": "Spain",
+        "quantity": "250 g",
+        "price": "3.00 GEL"
+    }, 
+    {
+        "id": 3,
+        "productName": "apple",
+        "image": "image",
+        "from": "Spain",
+        "quantity": "250 g",
+        "price": "3.00 GEL"
+    }
+]
